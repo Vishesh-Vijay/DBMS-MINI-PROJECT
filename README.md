@@ -1,4 +1,1 @@
-# DBMS-MINI-PROJECT
-#Home
-#signup
-#login
+# DBMS-MINI-PROJECT 
