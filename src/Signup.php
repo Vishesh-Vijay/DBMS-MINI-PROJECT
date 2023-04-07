@@ -45,7 +45,7 @@
         <nav class="bg-black text-white p-2 flex justify-between items-center sticky">
             <div class="ml-4 flex items-center">
                 <img src="./images/logo.png" alt="">
-                <h1 class="text-3xl ml-2 font-semibold">ORGANS</h1>
+                <h1 class="text-3xl ml-2 font-semibold">LifeLink</h1>
             </div>
             <ul class="flex justify-evenly mr-8">
                 <li class="text-lg font-semibold px-4"><a href="./Home.php">Home</a></li>
@@ -66,8 +66,8 @@
                 <form action="./Signup.php" method="post">
                     <div class="flex flex-col justify-center items-center">
                         <input type="text" id="username" name="username" placeholder="Username" class="border-2 border-black rounded-lg p-2 mt-4">
-                        <input type="text" id="password" name="password" placeholder="Password" class="border-2 border-black rounded-lg p-2 mt-4">
-                        <input type="text" id="cpassword" name="cpassword" placeholder="Confirm Password" class="border-2 border-black rounded-lg p-2 mt-4">
+                        <input type="password" id="password" name="password" placeholder="Password" class="border-2 border-black rounded-lg p-2 mt-4">
+                        <input type="password" id="cpassword" name="cpassword" placeholder="Confirm Password" class="border-2 border-black rounded-lg p-2 mt-4">
                         <button class="bg-red-500 text-white px-4 py-2 rounded-lg mt-2">SignUp</button>
                     </div>
                     

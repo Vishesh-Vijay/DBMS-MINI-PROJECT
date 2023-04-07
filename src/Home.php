@@ -13,7 +13,7 @@
         <nav class="bg-black text-white p-2 flex justify-between items-center sticky">
             <div class="ml-4 flex items-center">
                 <img src="./images/logo.png" alt="">
-                <h1 class="text-3xl ml-2 font-semibold">ORGANS</h1>
+                <h1 class="text-3xl ml-2 font-semibold">LifeLink</h1>
             </div>
             <ul class="flex justify-evenly mr-8">
                 <li class="text-lg font-semibold px-4"><a href="#">Home</a></li>
@@ -25,10 +25,10 @@
     <main class="w-full flex justify-between">
         <div class=" w-1/2 flex justify-center items-center h-screen">
             <div class="flex flex-col justify-center items-center">
-                <h4>Saving people lives</h4>
-                <h1 class="text-5xl font-semibold">ORGAN DONATION SYSTEM</h1>
-                 <h3>Welcome to out Organ Donation website.</h3>
-                <p class=" font-semibold mt-4">SignUp to be one of us</p>
+                <h4 class="text-2xl">Saving people lives</h4>
+                <h1 class="text-8xl font-semibold">LIFELINK</h1>
+                 <h3 class="text-2xl">Welcome to out Organ Donation website.</h3>
+                <p class="text-lg font-semibold mt-4">SignUp to be one of us</p>
                 <button class="bg-red-500 text-white px-4 py-2 rounded-lg mt-2"><a href="./Signup.php">SignUp</a></button>
             </div>
         </div>
