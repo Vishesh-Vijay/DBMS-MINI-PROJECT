@@ -1,3 +1,10 @@
+<?php 
+    session_start();
+    require_once "dbconnect.php";
+    if(isset($_SESSION['username'])!=""){
+        header("Location:./Userpage.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,7 +40,7 @@
                 <h1 class="font-semibold text-3xl">Login into the system</h1>
                 <form action="">
                     <div class="flex flex-col justify-center items-center">
-                        <input type="text" placeholder="Email" class="border-2 border-black rounded-lg p-2 mt-4">
+                        <input type="text" placeholder="Username" class="border-2 border-black rounded-lg p-2 mt-4">
                         <input type="text" placeholder="Password" class="border-2 border-black rounded-lg p-2 mt-4">
                         <button class="bg-red-500 text-white px-4 py-2 rounded-lg mt-2">Login</button>
                     </div>

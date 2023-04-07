@@ -1,3 +1,35 @@
+<?php 
+    $showAlert=false;
+    $showError=false;
+    $exists=false;
+
+    if($_SERVER["REQUEST_METHOD"]=="POST"){
+        include "dbconnect.php";
+        $username=$_POST["username"];
+        $password=$_POST["password"];
+        $cpassword=$_POST["cpassword"];
+
+        $sql="SELECT * FROM `login` where `username`='$username'";
+        $res=mysqli_query($conn,$sql);
+        $num=mysqli_num_rows($res);
+        if($num==0){
+            if(($password == $cpassword) && $exists==false){
+                $hash=password_hash($password,PASSWORD_DEFAULT);
+                $sql="INSERT INTO `login` (`username`, `password`, `login_ID`) VALUES ('$username', '$password', NULL);";
+                $result = mysqli_query($conn, $sql); 
+                if ($result) {
+                    $showAlert = true; 
+                }
+            }
+            else { 
+                $showError = "Passwords do not match"; 
+            }
+        } 
+        if($num>0){
+            $exists="Either username not available or you already have an account";
+        }   
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,18 +63,41 @@
          <div class=" w-1/2 flex justify-center items-center h-screen">
            <div class="flex flex-col justify-center items-center">
                 <h1 class="font-semibold text-3xl">SignUp to be one of us</h1>
-                <form action="">
+                <form action="./Signup.php" method="post">
                     <div class="flex flex-col justify-center items-center">
-                        <input type="text" placeholder="First Name" class="border-2 border-black rounded-lg p-2 mt-4">
-                        <input type="text" placeholder="Last Name" class="border-2 border-black rounded-lg p-2 mt-4">
-                        <input type="text" placeholder="Email" class="border-2 border-black rounded-lg p-2 mt-4">
-                        <input type="text" placeholder="Password" class="border-2 border-black rounded-lg p-2 mt-4">
-                        <input type="text" placeholder="Confirm Password" class="border-2 border-black rounded-lg p-2 mt-4">
+                        <input type="text" id="username" name="username" placeholder="Username" class="border-2 border-black rounded-lg p-2 mt-4">
+                        <input type="text" id="password" name="password" placeholder="Password" class="border-2 border-black rounded-lg p-2 mt-4">
+                        <input type="text" id="cpassword" name="cpassword" placeholder="Confirm Password" class="border-2 border-black rounded-lg p-2 mt-4">
                         <button class="bg-red-500 text-white px-4 py-2 rounded-lg mt-2">SignUp</button>
                     </div>
+                    
                 </form>
+                <?php
+                if($showAlert) { 
+                ?>
+                    <div class="text-green-500 text-xl font-semibold text-center" >
+                        Your Account has been successfully created!!<br>
+                        Go to Login page 
+                    </div> 
+                <?php  
+                }
+                if($showError){ 
+                ?>
+                    <div class="text-red-500 font-semibold text-xl text-center">
+                        Passwords don't match try again!!
+                    </div>
+                <?php
+                } 
+                if($exists){
+                ?>
+                    <div class="text-red-500 font-semibold text-xl text-center">
+                        Account already exists or username not available!!
+                    </div> 
+                <?php
+                } 
+                ?>
             </div>  
         </div>
-    </main> 
+    </main>
 </body>
 </html>
