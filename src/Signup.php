@@ -1,4 +1,17 @@
-<?php 
+<?php
+    session_start();
+    if(isset($_SESSION['username']) =="") {
+        setcookie(session_name(), '', 100);
+        session_unset();
+        session_destroy();
+        header("Location: ./Login.php");
+    }
+    if(isset($_POST['logout'])){
+        setcookie(session_name(), '', 100);
+        session_unset();
+        session_destroy();
+        header("Location: ./Login.php");
+    }
     $showAlert=false;
     $showError=false;
     $exists=false;
@@ -48,9 +61,13 @@
                 <h1 class="text-3xl ml-2 font-semibold">LifeLink</h1>
             </div>
             <ul class="flex justify-evenly mr-8">
-                <li class="text-lg font-semibold px-4"><a href="./Home.php">Home</a></li>
-                <li class="text-lg font-semibold px-4"><a href="#">Signup</a></li>
-                <li class="text-lg font-semibold px-4"><a href="./Login.php">Login</a></li>
+                <li class="text-lg font-semibold px-4"><a href="./Userpage.php">Home</a></li>
+
+                <li class="text-lg font-semibold px-4">
+                   <form action="./Userpage.php" method="post">
+                         <input type="submit" name="logout" value="logout">
+                    </form> 
+                </li>
             </ul>
         </nav>
     </header>
@@ -62,7 +79,7 @@
         </div>
          <div class=" w-1/2 flex justify-center items-center h-screen">
            <div class="flex flex-col justify-center items-center">
-                <h1 class="font-semibold text-3xl">SignUp to be one of us</h1>
+                <h1 class="font-semibold text-3xl">Enter the details of the new admin</h1>
                 <form action="./Signup.php" method="post">
                     <div class="flex flex-col justify-center items-center">
                         <input type="text" id="username" name="username" placeholder="Username" class="border-2 border-black rounded-lg p-2 mt-4">
@@ -73,7 +90,7 @@
                     
                 </form>
                 <?php
-                if($showAlert) { 
+                if($showAlert) {
                 ?>
                     <div class="text-green-500 text-xl font-semibold text-center" >
                         Your Account has been successfully created!!<br>

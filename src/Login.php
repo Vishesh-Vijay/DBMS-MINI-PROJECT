@@ -7,6 +7,7 @@
     $password_error=false;
     $username_error=false;
     if(isset($_POST['login'])){
+        include "dbconnect.php";
         $username=$_POST['username'];
         $password=$_POST['password'];
         $sql="SELECT * FROM `login` WHERE `username`='$username'";

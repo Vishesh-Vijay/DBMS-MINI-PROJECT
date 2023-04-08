@@ -16,8 +16,7 @@
                 <h1 class="text-3xl ml-2 font-semibold">LifeLink</h1>
             </div>
             <ul class="flex justify-evenly mr-8">
-                <li class="text-lg font-semibold px-4"><a href="#">Home</a></li>
-                <li class="text-lg font-semibold px-4"><a href="./Signup.php">Signup</a></li>
+                <li class="text-lg font-semibold px-4"><a href="./Home.php">Home</a></li>
                 <li class="text-lg font-semibold px-4"><a href="./Login.php">Login</a></li>
             </ul>
         </nav>
@@ -27,9 +26,9 @@
             <div class="flex flex-col justify-center items-center">
                 <h4 class="text-2xl">Saving people lives</h4>
                 <h1 class="text-8xl font-semibold">LIFELINK</h1>
-                 <h3 class="text-2xl">Welcome to out Organ Donation website.</h3>
-                <p class="text-lg font-semibold mt-4">SignUp to be one of us</p>
-                <button class="bg-red-500 text-white px-4 py-2 rounded-lg mt-2"><a href="./Signup.php">SignUp</a></button>
+                 <h3 class="text-2xl">Welcome to our Organ Donation website.</h3>
+                <p class="text-lg font-semibold mt-4">Login into your account</p>
+                <button class="bg-red-500 text-white px-4 py-2 rounded-lg mt-2"><a href="./Login.php">Lo</a></button>
             </div>
         </div>
          <div class=" w-1/2 flex justify-center items-center h-screen ">
