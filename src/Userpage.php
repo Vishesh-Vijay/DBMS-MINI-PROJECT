@@ -1,4 +1,8 @@
 <?php
+ if(!isset($_SERVER['HTTP_REFERER'])){
+      header("Location: ./Login.php");
+      exit;
+    }
 session_start();
 include "dbconnect.php";
 if(isset($_SESSION['username']) =="") {
@@ -55,39 +59,39 @@ if(isset($_POST['logout'])){
         </div>
         
         <div class="flex justify-around pt-20">
-            <div class="w-64 h-64 bg-black text-white rounded-lg p-4">
+            <div class="w-64 h-64 bg-black text-white rounded-3xl p-4">
                <img src="./images/patient.png" alt="patient" class="mx-auto pt-4">
                <h3 class="text-xl font-semibold text-center pt-4">Patients</h3>
                <div class="flex justify-center mt-6">
-                    <button class="p-3 border border-white rounded-lg"><a href="./Patient.php">Got to patients</a><button> 
+                    <button class="p-3 border border-white rounded-3xl"><a href="./Patient.php">Got to patients</a><button> 
                </div>
             </div>
-            <div class="w-64 h-64 bg-black text-white rounded-lg p-4">
+            <div class="w-64 h-64 bg-black text-white rounded-3xl p-4">
               <img src="./images/donor.png" alt="donor" class="mx-auto pt-4">
                <h3 class="text-xl font-semibold text-center pt-4">Donors</h3>
                <div class="flex justify-center mt-6">
-                    <button class="p-3 border border-white rounded-lg"><a href="./Donor.php">Got to Donors</a><button> 
+                    <button class="p-3 border border-white rounded-3xl"><a href="./Donor.php">Got to Donors</a><button> 
                </div>
             </div>
-            <div class="w-64 h-64 bg-black text-white rounded-lg p-4">
+            <div class="w-64 h-64 bg-black text-white rounded-3xl p-4">
                 <img src="./images/doctor.png" alt="doctor" class="mx-auto pt-4">
                <h3 class="text-xl font-semibold text-center pt-4">Doctors</h3>
                <div class="flex justify-center mt-6">
-                    <button class="p-3 border border-white rounded-lg"><a href="./Doctor.php">Got to Doctors</a><button> 
+                    <button class="p-3 border border-white rounded-3xl"><a href="./Doctor.php">Got to Doctors</a><button> 
                </div>
             </div>
-            <div class="w-64 h-64 bg-black text-white rounded-lg p-4">
+            <div class="w-64 h-64 bg-black text-white rounded-3xl p-4">
                 <img src="./images/hospital.png" alt="hospital" class="mx-auto pt-4">
                <h3 class="text-xl font-semibold text-center pt-4">Hospitals</h3>
                <div class="flex justify-center mt-6">
-                    <button class="p-3 border border-white rounded-lg"><a href="./Hospital.php">Got to Hospitals</a><button> 
+                    <button class="p-3 border border-white rounded-3xl"><a href="./Hospital.php">Got to Hospitals</a><button> 
                </div>
             </div>
-            <div class="w-64 h-64 bg-black text-white rounded-lg p-4">
+            <div class="w-64 h-64 bg-black text-white rounded-3xl p-4">
                <img src="./images/admin.png" alt="admin" class="mx-auto pt-4">
                <h3 class="text-xl font-semibold text-center pt-4">New Admin</h3>
                <div class="flex justify-center mt-6">
-                    <button class="p-3 border border-white rounded-lg"><a href="./Signup.php">Add new admin</a><button> 
+                    <button class="p-3 border border-white rounded-3xl"><a href="./Signup.php">Add new admin</a><button> 
                </div>
             </div>
         </div>

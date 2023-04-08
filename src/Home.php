@@ -28,7 +28,7 @@
                 <h1 class="text-8xl font-semibold">LIFELINK</h1>
                  <h3 class="text-2xl">Welcome to our Organ Donation website.</h3>
                 <p class="text-lg font-semibold mt-4">Login into your account</p>
-                <button class="bg-red-500 text-white px-4 py-2 rounded-lg mt-2"><a href="./Login.php">Lo</a></button>
+                <button class="bg-red-500 text-white px-4 py-2 rounded-lg mt-2"><a href="./Login.php">Login</a></button>
             </div>
         </div>
          <div class=" w-1/2 flex justify-center items-center h-screen ">

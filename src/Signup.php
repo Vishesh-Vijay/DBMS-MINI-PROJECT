@@ -1,4 +1,8 @@
 <?php
+    if(!isset($_SERVER['HTTP_REFERER'])){
+      header("Location: ./Login.php");
+      exit;
+    }
     session_start();
     if(isset($_SESSION['username']) =="") {
         setcookie(session_name(), '', 100);
