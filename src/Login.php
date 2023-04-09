@@ -1,9 +1,9 @@
 <?php 
     session_start();
     require_once "dbconnect.php";
-    if(isset($_SESSION['username'])!=""){
-        header("Location:./Userpage.php");
-    }
+    // if(isset($_SESSION['username'])!=""){
+    //     header("Location:./Userpage.php");
+    // }
     $password_error=false;
     $username_error=false;
     if(isset($_POST['login'])){
@@ -15,7 +15,7 @@
         $num=mysqli_num_rows($res);
         if($num==1){
             $row=mysqli_fetch_assoc($res);
-            if($password){
+            if($password==$row['password']){
                 $_SESSION['username']=$row['username'];
                 header("Location:./Userpage.php");
             }

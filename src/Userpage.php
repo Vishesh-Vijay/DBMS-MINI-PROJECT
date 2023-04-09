@@ -1,8 +1,8 @@
 <?php
- if(!isset($_SERVER['HTTP_REFERER'])){
-      header("Location: ./Login.php");
-      exit;
-    }
+//  if(!isset($_SERVER['HTTP_REFERER'])){
+//       header("Location: ./Login.php");
+//       exit;
+//     }
 session_start();
 include "dbconnect.php";
 if(isset($_SESSION['username']) =="") {
@@ -12,7 +12,7 @@ if(isset($_SESSION['username']) =="") {
     header("Location: ./Login.php");
 }
 if(isset($_POST['logout'])){
-    setcookie(session_name(), '', 100);
+    setcookie(session_name(), '', 100)  ;
     session_unset();
     session_destroy();
     header("Location: ./Login.php");
