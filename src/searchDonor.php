@@ -32,7 +32,7 @@ if(isset($_POST['logout'])){
 </head>
 <body>
 <header>
-        <nav class="bg-black text-white p-2 flex justify-between items-center sticky">
+<nav class="bg-black text-white p-2 flex justify-between items-center sticky">
             <div class="ml-4 flex items-center">
                 <img src="./images/logo.png" alt="">
                 <h1 class="text-3xl ml-2 font-semibold">LifeLink</h1>
