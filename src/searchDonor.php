@@ -47,10 +47,10 @@ if(isset($_POST['logout'])){
         </nav>
     </header>
     <!-- my code goes here -->
-    <h1 class="text-center decoration-solid text-black text-7xl font-bold mt-10">Search Donor</h1>
+    <h1 class="text-center decoration-solid text-black text-5xl font-bold mt-10">Search Donor</h1>
     <div class="container my-5">
-        <form method="post" class="my-10 ">
-            <input class="border-4 ml-5" type="text" placeholder="Search Donor By ID" name="search">
+        <form method="post" class="my-10 px-6">
+            <input class="border-4 ml-5 px-4" type="text" placeholder="Search Donor By ID" name="search">
 <!-- <button
   type="button"
   class="inline-block rounded bg-neutral-800 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-neutral-50 shadow-[0_4px_9px_-4px_#332d2d] transition duration-150 ease-in-out hover:bg-neutral-800 hover:shadow-[0_8px_9px_-4px_rgba(51,45,45,0.3),0_4px_18px_0_rgba(51,45,45,0.2)] focus:bg-neutral-800 focus:shadow-[0_8px_9px_-4px_rgba(51,45,45,0.3),0_4px_18px_0_rgba(51,45,45,0.2)] focus:outline-none focus:ring-0 active:bg-neutral-900 active:shadow-[0_8px_9px_-4px_rgba(51,45,45,0.3),0_4px_18px_0_rgba(51,45,45,0.2)] dark:bg-neutral-900 dark:shadow-[0_4px_9px_-4px_#171717] dark:hover:bg-neutral-900 dark:hover:shadow-[0_8px_9px_-4px_rgba(27,27,27,0.3),0_4px_18px_0_rgba(27,27,27,0.2)] dark:focus:bg-neutral-900 dark:focus:shadow-[0_8px_9px_-4px_rgba(27,27,27,0.3),0_4px_18px_0_rgba(27,27,27,0.2)] dark:active:bg-neutral-900 dark:active:shadow-[0_8px_9px_-4px_rgba(27,27,27,0.3),0_4px_18px_0_rgba(27,27,27,0.2)] "
@@ -59,8 +59,8 @@ if(isset($_POST['logout'])){
 </button> -->
             <button class="bg-black text-white font-bold py-2 px-4 rounded opacity-50 cursor-not-allowed" name="submit">Search</button>
         </form>
-        <div class="container my-5">
-            <table class="table">
+        <div class="container my-5 px-7 mx-4">
+            <table class="table-auto w-full scroll-ml-6">
                 <?php
                 if(isset($_POST['submit'])){
                     $search=$_POST['search'];
@@ -71,34 +71,34 @@ if(isset($_POST['logout'])){
                             echo'
                             <thead>
                             <tr>
-                            <th>No</th>
-                            <th>First name</th>
-                            <th>Second name</th> 
-                            <th>Age</th> 
-                            <th>Blood group</th> 
-                            <th>Medical history</th> 
-                            <th>Doctor operated</th> 
-                            <th>Address 1</th> 
-                            <th>Address 2</th> 
-                            <th>Address 3</th> 
-                            <th>Phone number</th> 
+                            <th class="border px-4 py-2">No</th>
+                            <th class="border px-4 py-2">First name</th>
+                            <th class="border px-4 py-2">Second name</th> 
+                            <th class="border px-4 py-2">Age</th> 
+                            <th class="border px-4 py-2">Blood group</th> 
+                            <th class="border px-4 py-2">Medical history</th> 
+                            <th class="border px-4 py-2">Doctor operated</th> 
+                            <th class="border px-4 py-2">Address 1</th> 
+                            <th class="border px-4 py-2">Address 2</th> 
+                            <th class="border px-4 py-2">Address 3</th> 
+                            <th class="border px-4 py-2">Phone number</th> 
                             </tr>
                             </thead>
                             ';
                             $row=mysqli_fetch_assoc($result);
                             echo'<tbody>
                             <tr>
-                            <td>'.$row['Donor_ID'].'</td>
-                            <td>'.$row['first_name'].'</td>
-                            <td>'.$row['last_name'].'</td>
-                            <td>'.$row['age'].'</td>
-                            <td>'.$row['Blood_group'].'</td>
-                            <td>'.$row['medical_history'].'</td>
-                            <td>'.$row['doctor'].'</td>
-                            <td>'.$row['address'].'</td>
-                            <td>'.$row['address2'].'</td>
-                            <td>'.$row['address3'].'</td>
-                            <td>'.$row['phone'].'</td>
+                            <td class="border px-4 py-2">'.$row['Donor_ID'].'</td>
+                            <td class="border px-4 py-2">'.$row['first_name'].'</td>
+                            <td class="border px-4 py-2">'.$row['last_name'].'</td>
+                            <td class="border px-4 py-2">'.$row['age'].'</td>
+                            <td class="border px-4 py-2">'.$row['Blood_group'].'</td>
+                            <td class="border px-4 py-2">'.$row['medical_history'].'</td>
+                            <td class="border px-4 py-2">'.$row['doctor'].'</td>
+                            <td class="border px-4 py-2">'.$row['address'].'</td>
+                            <td class="border px-4 py-2">'.$row['address2'].'</td>
+                            <td class="border px-4 py-2">'.$row['address3'].'</td>
+                            <td class="border px-4 py-2">'.$row['phone'].'</td>
                             </tr>
                             </tbody>';
                         }
