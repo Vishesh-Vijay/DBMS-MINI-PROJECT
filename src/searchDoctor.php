@@ -26,9 +26,6 @@ if(isset($_POST['logout'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Patient</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
 <header>
@@ -48,7 +45,7 @@ if(isset($_POST['logout'])){
         </nav>
     </header>
     <!-- my code goes here -->
-    <h1 class="text-center decoration-solid text-black text-7xl font-bold mt-10">Search Doctor</h1>
+    <h1 class="text-center decoration-solid text-black text-3xl font-bold mt-10">Search Doctor</h1>
     <div class="container my-5">
         <form method="post" class="my-10 ">
             <input class="border-4 ml-5" type="text" placeholder="Search Doctor By ID" name="search">

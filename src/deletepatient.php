@@ -17,6 +17,18 @@ if(isset($_POST['logout'])){
     session_destroy();
     header("Location: ./Login.php");
 }
+if($_SERVER["REQUEST_METHOD"]=="POST"){
+    include "dbconnect.php";
+    $Patient_ID=$_POST["Patient_ID"];
+
+$sql="DELETE FROM `patient` WHERE `Patient_ID` = '$Patient_ID';";
+if (mysqli_query($conn, $sql)) {
+    echo "Record Deleted successfully";
+    header("Location:./Userpage.php");
+  } else {
+    echo "Error inserting record: " . mysqli_error($conn);
+  }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,39 +50,20 @@ if(isset($_POST['logout'])){
                 <li class="text-lg font-semibold px-4"><a href="./Userpage.php">Home</a></li>
                 <li class="text-lg font-semibold px-4">
                     <form action="./Userpage.php" method="post">
-                         <input type="submit" name="logout" value="Logout">
+                         <input type="submit" name="logout" value="logout">
                     </form>
                 </li>
             </ul>
         </nav>
     </header>
-    <div class="flex justify-center">
-    <a href="./registerpatient.php">
-<button class="bg-red-500  text-white mt-10 py-4 px-80 hover:bg-red-700  rounded border-red-500 ">
-  Register Patient&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</button></a>
-</div>
-<div class="flex justify-center" >
-<a href="./searchpatient.php">
-<button class="bg-red-500 text-white py-4 px-80 mt-1 hover:bg-red-700 rounded border-red-500">
-  Search Patient &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</button>
-</a>
-</div>
-<div class="flex justify-center">
-    <a href="./deletepatient.php">
-<button class="bg-red-500 text-white mt-1 py-4 px-80 hover:bg-red-700 rounded border-red-500 ">
-  Delete Patient &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</button></a>
-</div>
-<div class="flex justify-center">
-    <a href="./displayallpatients.php">
-<button class="bg-red-500 text-white mt-1 py-4 px-80 hover:bg-red-700 rounded border-red-500 ">
-  Display All Patients
-</button></a>
-</div>
-<div class="w-screen mt-10 flex justify-center items-center">
-                <img src="./images/patient.jpg" alt="welcome" class="h-64" >
-            </div>
+    <h1 class="text-3xl font-bold mt-6 flex justify-center">Delete Patient</h1>
+        <div class="flex items-center justify-center mt-10">
+            <form action="./deletepatient.php" method="post">
+                <div class="flex flex-col rounded- sm:flex-row">
+                    <input class="py-3 px-4 text-gray-800  border-2" type="text" name="Patient_ID" placeholder="Enter Patient ID">
+                    <button class="py-3 px-4 bg-red-500 hover:bg-red-700 text-gray-100" type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
 </body>
 </html>

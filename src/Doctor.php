@@ -44,14 +44,27 @@ if(isset($_POST['logout'])){
             </ul>
         </nav>
     </header>
-    <a href="./registerDoctor.php">
-<button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
-  Register A Doctor
+    <div class="flex justify-center">
+    <a href="./registerdoctor.php">
+<button class="bg-red-500  text-white mt-10 py-4 px-80 hover:bg-red-700  rounded border-red-500 ">
+  Register Doctor
 </button></a>
-<a href="./searchDoctor.php">
-<button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
-  Search Doctor
+</div>
+<div class="flex justify-center" >
+<a href="./searchdoctor.php">
+<button class="bg-red-500 text-white py-4 px-80 mt-1 hover:bg-red-700 rounded border-red-500">
+  Search Doctor &nbsp;
 </button>
 </a>
+</div>
+<div class="flex justify-center">
+    <a href="./deletedoctor.php">
+<button class="bg-red-500 text-white mt-1 py-4 px-80 hover:bg-red-700 rounded border-red-500 ">
+  Delete Doctor &nbsp;&nbsp;
+</button></a>
+</div>
+<div class="w-screen mt-10 flex justify-center items-center">
+                <img src="./images/patient.jpg" alt="welcome" class="h-64" >
+            </div>
 </body>
 </html>

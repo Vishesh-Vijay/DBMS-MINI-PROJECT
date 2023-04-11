@@ -38,35 +38,29 @@ if(isset($_POST['logout'])){
                 <li class="text-lg font-semibold px-4"><a href="./Userpage.php">Home</a></li>
                 <li class="text-lg font-semibold px-4">
                     <form action="./Userpage.php" method="post">
-                         <input type="submit" name="logout" value="Logout">
+                         <input type="submit" name="logout" value="logout">
                     </form>
                 </li>
             </ul>
         </nav>
     </header>
     <div class="flex justify-center">
-    <a href="./registerpatient.php">
+    <a href="./registerhospital.php">
 <button class="bg-red-500  text-white mt-10 py-4 px-80 hover:bg-red-700  rounded border-red-500 ">
-  Register Patient&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  Register Hospital
 </button></a>
 </div>
 <div class="flex justify-center" >
-<a href="./searchpatient.php">
+<a href="./searchhospital.php">
 <button class="bg-red-500 text-white py-4 px-80 mt-1 hover:bg-red-700 rounded border-red-500">
-  Search Patient &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  Search Hospital &nbsp;
 </button>
 </a>
 </div>
 <div class="flex justify-center">
-    <a href="./deletepatient.php">
+    <a href="./deletehospital.php">
 <button class="bg-red-500 text-white mt-1 py-4 px-80 hover:bg-red-700 rounded border-red-500 ">
-  Delete Patient &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</button></a>
-</div>
-<div class="flex justify-center">
-    <a href="./displayallpatients.php">
-<button class="bg-red-500 text-white mt-1 py-4 px-80 hover:bg-red-700 rounded border-red-500 ">
-  Display All Patients
+  Delete Hospital &nbsp;&nbsp;
 </button></a>
 </div>
 <div class="w-screen mt-10 flex justify-center items-center">

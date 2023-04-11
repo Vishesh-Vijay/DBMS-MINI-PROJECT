@@ -26,9 +26,6 @@ if(isset($_POST['logout'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Patient</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
 <header>
@@ -41,31 +38,28 @@ if(isset($_POST['logout'])){
                 <li class="text-lg font-semibold px-4"><a href="./Userpage.php">Home</a></li>
                 <li class="text-lg font-semibold px-4">
                     <form action="./Userpage.php" method="post">
-                         <input type="submit" name="logout" value="logout">
+                         <input type="submit" name="logout" value="Logout">
                     </form>
                 </li>
             </ul>
         </nav>
     </header>
-    <!-- my code goes here -->
-    <h1 class="text-center decoration-solid text-black text-7xl font-bold mt-10">Search Patient</h1>
-    <div class="container my-5">
-        <form method="post" class="my-10 ">
-            <input class="border-4 ml-5" type="text" placeholder="Search Patient By ID" name="search">
-<!-- <button
-  type="button"
-  class="inline-block rounded bg-neutral-800 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-neutral-50 shadow-[0_4px_9px_-4px_#332d2d] transition duration-150 ease-in-out hover:bg-neutral-800 hover:shadow-[0_8px_9px_-4px_rgba(51,45,45,0.3),0_4px_18px_0_rgba(51,45,45,0.2)] focus:bg-neutral-800 focus:shadow-[0_8px_9px_-4px_rgba(51,45,45,0.3),0_4px_18px_0_rgba(51,45,45,0.2)] focus:outline-none focus:ring-0 active:bg-neutral-900 active:shadow-[0_8px_9px_-4px_rgba(51,45,45,0.3),0_4px_18px_0_rgba(51,45,45,0.2)] dark:bg-neutral-900 dark:shadow-[0_4px_9px_-4px_#171717] dark:hover:bg-neutral-900 dark:hover:shadow-[0_8px_9px_-4px_rgba(27,27,27,0.3),0_4px_18px_0_rgba(27,27,27,0.2)] dark:focus:bg-neutral-900 dark:focus:shadow-[0_8px_9px_-4px_rgba(27,27,27,0.3),0_4px_18px_0_rgba(27,27,27,0.2)] dark:active:bg-neutral-900 dark:active:shadow-[0_8px_9px_-4px_rgba(27,27,27,0.3),0_4px_18px_0_rgba(27,27,27,0.2)] "
-  name = "submit">
-  Search
-</button> -->
-            <button class="bg-black text-white font-bold py-2 px-4 rounded opacity-50 cursor-not-allowed" name="submit">Search</button>
-        </form>
-        <div class="container my-5">
-            <table class="table">
-                <?php
-                if(isset($_POST['submit'])){
-                    $search=$_POST['search'];
-                    $sql="Select * from `patient` where Patient_ID='$search'";
+    <h1 class="text-3xl font-bold mt-6 flex justify-center">Search Patient</h1>
+        <div class="flex items-center justify-center mt-10">
+            <form action="./searchpatient.php" method="post">
+                <div class="flex flex-col rounded-2">
+                    <input class="py-3 px-4  text-gray-800  border-2" type="text" name="firstname" placeholder="Enter First Name">
+                    <input class="py-3 px-4 mt-2 text-gray-800  border-2" type="text" name="lastname" placeholder="Enter Last Name">
+                    <button class="py-3 px-4 mt-4 bg-red-500 hover:bg-red-700 text-gray-100" type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+        <?php
+                if($_SERVER["REQUEST_METHOD"]=="POST"){
+                    include "dbconnect.php";
+                    $firstname=$_POST['firstname'];
+                    $lastname=$_POST['lastname'];
+                    $sql="Select * from `donor` where (`first_name`='$firstname' AND `last_name`='$lastname'); ";
                     $result=mysqli_query($conn, $sql);
                     if($result){
                         if(mysqli_num_rows($result) > 0){
@@ -89,7 +83,7 @@ if(isset($_POST['logout'])){
                             $row=mysqli_fetch_assoc($result);
                             echo'<tbody>
                             <tr>
-                            <td>'.$row['Patient_ID'].'</td>
+                            <td>'.$row['Donor_ID'].'</td>
                             <td>'.$row['first_name'].'</td>
                             <td>'.$row['last_name'].'</td>
                             <td>'.$row['age'].'</td>
@@ -111,8 +105,5 @@ if(isset($_POST['logout'])){
                     }
                 }
                 ?>                 
-            </table>
-        </div>
-    </div>
 </body>
 </html>

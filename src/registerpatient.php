@@ -60,14 +60,15 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
                 <li class="text-lg font-semibold px-4"><a href="./Userpage.php">Home</a></li>
                 <li class="text-lg font-semibold px-4">
                     <form action="./Userpage.php" method="post">
-                         <input type="submit" name="logout" value="logout">
+                         <input type="submit" name="logout" value="Logout">
                     </form>
                 </li>
             </ul>
         </nav>
     </header>
+    <h1 class="text-3xl flex justify-center mt-4 font-bold">Register Patient</h1>
     <div class="flex justify-center mt-8">
-    <form class="w-full max-w-lg" action="./registerpatient.php" method="post">
+    <form class="w-full max-w-lg" action="./registerpatient.php  bg-gray-500 shadow-md rounded" method="post" >
         <div class="flex flex-wrap -mx-3 mb-6">
         <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
         <label class="text-gray-700 text-l font-bold mb-2" for="grid-first-name">
