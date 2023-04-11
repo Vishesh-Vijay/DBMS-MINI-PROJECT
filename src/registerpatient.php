@@ -65,6 +65,8 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
             </ul>
         </nav>
     </header>
+    <h1 class=" flex justify-center decoration-solid text-black text-5xl font-bold mt-10">Register New Patient</h1>
+
     <div class="flex justify-center mt-8">
     <form class="w-full max-w-lg " action="./registerpatient.php" method="post">
         <div class="flex flex-wrap -mx-3 mb-6">
@@ -90,7 +92,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         <label class="text-gray-700 text-L font-bold mb-2" for="grid-zip">
             Age
         </label>
-        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-zip" name="age" ">
+        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-zip" name="age">
         </div>
         <div class="w-full px-3">
         <label class="text-gray-700 text-l font-bold mb-2" for="grid-password">

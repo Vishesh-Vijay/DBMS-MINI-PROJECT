@@ -19,11 +19,11 @@ if(isset($_POST['logout'])){
 }
 if($_SERVER["REQUEST_METHOD"]=="POST"){
     include "dbconnect.php";
-    $firstname=$_POST["first_name"];
-    $lastname=$_POST["last_name"];
+    $first_name=$_POST["first_name"];
+    $last_name=$_POST["last_name"];
     $age=$_POST["age"];
-    $bloodgroup=$_POST["Blood_group"];
-    $medicalhistory=$_POST["medical_history"];
+    $Blood_group=$_POST["Blood_group"];
+    $medical_history=$_POST["medical_history"];
     $doctor=$_POST["doctor"];
     $address=$_POST["address"];
     $address2=$_POST["address2"];
@@ -32,7 +32,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     
     
 
-    $sql="INSERT INTO `donor` (`first_name`, `last_name`, `age`,`Blood_group`,`medical_history`, `doctor`, `address`,`address2`, `address3`, `phone`, ) VALUES ('$firstname', '$lastname','$age',  '$bloodgroup', '$medicalhistory','$doctor', '$address','$address2', '$address3','$phone');";
+    $sql="INSERT INTO `donor` (`first_name`, `last_name`, `age`,`Blood_group`,`medical_history`, `doctor`, `address`,`address2`, `address3`, `phone`) VALUES ('$first_name', '$last_name','$age',  '$Blood_group', '$medical_history','$doctor', '$address','$address2', '$address3','$phone');";
     if (mysqli_query($conn, $sql)) {
         echo "Record inserted successfully";
       } else {
@@ -66,27 +66,24 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
             </ul>
         </nav>
     </header>
+    <h1 class="text-center decoration-solid text-black text-5xl font-bold mt-10">Register New Donor</h1>
+
     <div class="flex justify-center mt-8">
+
     <form class="w-full max-w-lg " action="./registerDonor.php" method="post">
         <div class="flex flex-wrap -mx-3 mb-6">
         <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
         <label class="text-gray-700 text-l font-bold mb-2" for="grid-first-name">
             First Name
         </label>
-        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" name="firstname" type="text">
+        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" name="first_name" type="text">
         </div>
         <div class="w-full md:w-1/2 px-3">
         <label class="text-gray-700 text-l font-bold mb-2" for="grid-last-name">
             Last Name
         </label>
-        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" name="lastname" type="text">
-        </div>
-        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-        <label class="text-gray-700 text-l font-bold mb-2" for="grid-first-name">
-            Doctor
-        </label>
-        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" name="doctor" type="text">
-        </div>
+        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" name="last_name" type="text">
+        </div>        
         <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
         <label class="text-gray-700 text-L font-bold mb-2" for="grid-zip">
             Age
@@ -97,13 +94,19 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         <label class=" text-gray-700 text-l font-bold mb-2" for="grid-state">
             Blood Group
         </label>
-        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" name="bloodgroup" type="text">
+        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" name="Blood_group" type="text">
         </div>
         <div class="w-full px-3">
         <label class="text-gray-700 text-l font-bold mb-2" for="grid-password">
             Medical History
         </label>
-        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-password" name="medicalhistory">
+        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-password" name="medical_history">
+        </div>
+        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+        <label class="text-gray-700 text-l font-bold mb-2" for="grid-first-name">
+            Doctor
+        </label>
+        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" name="doctor" type="text">
         </div>
         <div class="w-full px-3">
         <label class="text-gray-700 text-l font-bold mb-2" for="grid-password">

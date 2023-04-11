@@ -63,6 +63,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
             </ul>
         </nav>
     </header>
+    <h1 class=" flex justify-center decoration-solid text-black text-5xl font-bold mt-10">Register New Doctor</h1>
     <div class="flex justify-center mt-8">
     <form class="w-full max-w-lg " action="./registerDoctor.php" method="post">
         <div class="flex flex-wrap -mx-3 mb-6">
