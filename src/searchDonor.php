@@ -57,7 +57,7 @@ if(isset($_POST['logout'])){
   name = "submit">
   Search
 </button> -->
-            <button class="bg-black text-white font-bold py-2 px-4 rounded opacity-50 cursor-not-allowed" name="submit">Search</button>
+            <button class="ml-5 text-white bg-red-500 hover:bg-red-700 focus:ring-4 rounded-lg text-sm px-4 py-2 text-center inline-flex items-center" name="submit">Search</button>
         </form>
         <div class="container my-5 px-7 mx-4">
             <table class="table-auto w-full scroll-ml-6">
