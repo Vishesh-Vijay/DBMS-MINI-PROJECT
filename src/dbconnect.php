@@ -2,7 +2,7 @@
    
     $servername = "localhost"; 
     $username = "root"; 
-    $password = "vishesh@8220";
+    $password = "";
    
     $database = "Organ_Donation";
      $conn = mysqli_connect($servername, 
