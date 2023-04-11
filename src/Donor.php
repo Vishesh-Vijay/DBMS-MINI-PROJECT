@@ -33,6 +33,8 @@ if(isset($_POST['logout'])){
             <div class="ml-4 flex items-center">
                 <img src="./images/logo.png" alt="">
                 <h1 class="text-3xl ml-2 font-semibold">LifeLink</h1>
+                <a href="Userpage.php"><button type="button" class=" ml-5 text-white bg-red-500 hover:bg-red-700 focus:ring-4 rounded-lg text-sm px-4 py-2 text-center inline-flex items-center">Back
+</button></a>
             </div>
             <ul class="flex justify-evenly mr-8">
                 <li class="text-lg font-semibold px-4"><a href="./Userpage.php">Home</a></li>
@@ -44,14 +46,27 @@ if(isset($_POST['logout'])){
             </ul>
         </nav>
     </header>
-    <a href="./registerDonor.php">
-<button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
-  Register A Donor
+    <div class="flex justify-center">
+    <a href="./registerdonor.php">
+<button class="bg-red-500  text-white mt-10 py-4 px-80 hover:bg-red-700  rounded border-red-500 ">
+  Register Donor
 </button></a>
-<a href="./searchDonor.php">
-<button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
-  Search Donor
+</div>
+<div class="flex justify-center" >
+<a href="./searchdonor.php">
+<button class="bg-red-500 text-white py-4 px-80 mt-1 hover:bg-red-700 rounded border-red-500">
+  Search Donor &nbsp;
 </button>
 </a>
+</div>
+<div class="flex justify-center">
+    <a href="./deletedonor.php">
+<button class="bg-red-500 text-white mt-1 py-4 px-80 hover:bg-red-700 rounded border-red-500 ">
+  Delete Donor &nbsp;&nbsp;
+</button></a>
+</div>
+<div class="w-screen mt-10 flex justify-center items-center">
+                <img src="./images/patient.jpg" alt="welcome" class="h-64" >
+            </div>
 </body>
 </html>

@@ -34,6 +34,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     $sql="INSERT INTO `patient` (`first_name`, `last_name`, `age`,`medical_history`, `doctor`, `address`,`address2`, `address3`, `phone`, `Blood_group`) VALUES ('$firstname', '$lastname','$age', '$medicalhistory','$doctor', '$address','$address2', '$address3','$phone', '$bloodgroup');";
     if (mysqli_query($conn, $sql)) {
         echo "Record inserted successfully";
+        header("Location:./requireorgan.php");
       } else {
         echo "Error inserting record: " . mysqli_error($conn);
       }
@@ -54,81 +55,82 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
             <div class="ml-4 flex items-center">
                 <img src="./images/logo.png" alt="">
                 <h1 class="text-3xl ml-2 font-semibold">LifeLink</h1>
+                <a href="patient.php"><button type="button" class=" ml-5 text-white bg-red-500 hover:bg-red-700 focus:ring-4 rounded-lg text-sm px-4 py-2 text-center inline-flex items-center">Back
+</button></a>
             </div>
             <ul class="flex justify-evenly mr-8">
                 <li class="text-lg font-semibold px-4"><a href="./Userpage.php">Home</a></li>
                 <li class="text-lg font-semibold px-4">
                     <form action="./Userpage.php" method="post">
-                         <input type="submit" name="logout" value="logout">
+                         <input type="submit" name="logout" value="Logout">
                     </form>
                 </li>
             </ul>
         </nav>
     </header>
-    <h1 class=" flex justify-center decoration-solid text-black text-5xl font-bold mt-10">Register New Patient</h1>
-
+    <h1 class="text-3xl flex justify-center mt-4 font-bold">Register Patient</h1>
     <div class="flex justify-center mt-8">
-    <form class="w-full max-w-lg " action="./registerpatient.php" method="post">
+    <form class="w-full max-w-lg" action="./registerpatient.php  bg-gray-500 shadow-md rounded" method="post" >
         <div class="flex flex-wrap -mx-3 mb-6">
         <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
         <label class="text-gray-700 text-l font-bold mb-2" for="grid-first-name">
             First Name
         </label>
-        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" name="firstname" type="text">
+        <input class=" w-full  text-gray-700 border rounded py-3 px-4 mb-3 " id="grid-first-name" name="firstname" type="text">
         </div>
         <div class="w-full md:w-1/2 px-3">
         <label class="text-gray-700 text-l font-bold mb-2" for="grid-last-name">
             Last Name
         </label>
-        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" name="lastname" type="text">
+        <input class=" w-full text-gray-700 border rounded py-3 px-4 id="grid-last-name" name="lastname" type="text">
         </div>
         <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
         <label class="text-gray-700 text-l font-bold mb-2" for="grid-first-name">
             Doctor
         </label>
-        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" name="doctor" type="text">
+        <input class=" w-full text-gray-700 border rounded py-3 px-4 mb-3 " id="grid-first-name" name="doctor" type="text">
         </div>
         <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
         <label class="text-gray-700 text-L font-bold mb-2" for="grid-zip">
             Age
         </label>
-        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-zip" name="age">
+        <input class="w-full text-gray-700 border rounded py-3 px-4" id="grid-zip" name="age" ">
         </div>
         <div class="w-full px-3">
         <label class="text-gray-700 text-l font-bold mb-2" for="grid-password">
             Medical History
         </label>
-        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-password" name="medicalhistory">
+        <input class="w-full text-gray-700 border  rounded py-3 px-4 mb-3 " id="grid-password" name="medicalhistory">
         </div>
         <div class="w-full px-3">
         <label class="text-gray-700 text-l font-bold mb-2" for="grid-password">
             Address1
         </label>
-        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-password" name="address">
+        <input class="w-full text-gray-700 border rounded py-3 px-4 mb-3" id="grid-password" name="address">
         </div>
         <div class="w-full px-3">
         <label class="text-gray-700 text-l font-bold mb-2">
             Address2
         </label>
-        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" name="address2">
+        <input class="w-full  text-gray-700 border  rounded py-3 px-4 mb-3" name="address2">
         </div>
         <div class="w-full px-3">
         <label class="text-gray-700 text-l font-bold mb-2" for="grid-password">
             Address3
         </label>
-        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" name="address3" >
+        <input class="w-full text-gray-700 border  rounded py-3 px-4 mb-3" name="address3" >
         </div>
         <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
         <label class="text-gray-700 text-l font-bold mb-2" for="grid-city">
             Phone
         </label>
-        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" name="phone" type="text">
+        <input class=" w-full  text-gray-700 border  rounded py-3 px-4" id="grid-city" name="phone" type="text">
         </div>
         <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
         <label class=" text-gray-700 text-l font-bold mb-2" for="grid-state">
             Blood Group
         </label>
-        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" name="bloodgroup" type="text">
+        <input class="w-full text-gray-700 border  rounded py-3 px-4 " id="grid-city" name="bloodgroup" type="text">
         
         </div>
     </div>

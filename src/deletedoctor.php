@@ -17,6 +17,18 @@ if(isset($_POST['logout'])){
     session_destroy();
     header("Location: ./Login.php");
 }
+if($_SERVER["REQUEST_METHOD"]=="POST"){
+    include "dbconnect.php";
+    $Doctor_ID=$_POST["Doctor_ID"];
+
+$sql="DELETE FROM `doctor` WHERE `Doctor_ID` = '$Doctor_ID';";
+if (mysqli_query($conn, $sql)) {
+    echo "Record Deleted successfully";
+    header("Location:./Userpage.php");
+  } else {
+    echo "Error inserting record: " . mysqli_error($conn);
+  }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,7 +45,7 @@ if(isset($_POST['logout'])){
             <div class="ml-4 flex items-center">
                 <img src="./images/logo.png" alt="">
                 <h1 class="text-3xl ml-2 font-semibold">LifeLink</h1>
-                <a href="Userpage.php"><button type="button" class=" ml-5 text-white bg-red-500 hover:bg-red-700 focus:ring-4 rounded-lg text-sm px-4 py-2 text-center inline-flex items-center">Back
+                <a href="doctor.php"><button type="button" class=" ml-5 text-white bg-red-500 hover:bg-red-700 focus:ring-4 rounded-lg text-sm px-4 py-2 text-center inline-flex items-center">Back
 </button></a>
             </div>
             <ul class="flex justify-evenly mr-8">
@@ -46,36 +58,14 @@ if(isset($_POST['logout'])){
             </ul>
         </nav>
     </header>
-    
-    
-    <div class="flex justify-center">
-        
-    <a href="./registerpatient.php">
-<button class="bg-red-500  text-white mt-10 py-4 px-80 hover:bg-red-700  rounded border-red-500 ">
-  Register Patient&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</button></a>
-</div>
-<div class="flex justify-center" >
-<a href="./searchpatient.php">
-<button class="bg-red-500 text-white py-4 px-80 mt-1 hover:bg-red-700 rounded border-red-500">
-  Search Patient &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</button>
-</a>
-</div>
-<div class="flex justify-center">
-    <a href="./deletepatient.php">
-<button class="bg-red-500 text-white mt-1 py-4 px-80 hover:bg-red-700 rounded border-red-500 ">
-  Delete Patient &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</button></a>
-</div>
-<div class="flex justify-center">
-    <a href="./displayallpatients.php">
-<button class="bg-red-500 text-white mt-1 py-4 px-80 hover:bg-red-700 rounded border-red-500 ">
-  Display All Patients
-</button></a>
-</div>
-<div class="w-screen mt-10 flex justify-center items-center">
-                <img src="./images/patient.jpg" alt="welcome" class="h-64" >
-            </div>
+    <h1 class="text-3xl font-bold mt-6 flex justify-center">Delete Doctor</h1>
+        <div class="flex items-center justify-center mt-10">
+            <form action="./deletedoctor.php" method="post">
+                <div class="flex flex-col rounded- sm:flex-row">
+                    <input class="py-3 px-4 text-gray-800  border-2" type="text" name="Doctor_ID" placeholder="Enter Doctor ID">
+                    <button class="py-3 px-4 bg-red-500 hover:bg-red-700 text-gray-100" type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
 </body>
 </html>

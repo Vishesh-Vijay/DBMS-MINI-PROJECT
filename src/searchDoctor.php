@@ -25,10 +25,7 @@ if(isset($_POST['logout'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Doctor</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Patient</title>
 </head>
 <body>
 <header>
@@ -36,6 +33,8 @@ if(isset($_POST['logout'])){
             <div class="ml-4 flex items-center">
                 <img src="./images/logo.png" alt="">
                 <h1 class="text-3xl ml-2 font-semibold">LifeLink</h1>
+                <a href="doctor.php"><button type="button" class=" ml-5 text-white bg-red-500 hover:bg-red-700 focus:ring-4 rounded-lg text-sm px-4 py-2 text-center inline-flex items-center">Back
+</button></a>
             </div>
             <ul class="flex justify-evenly mr-8">
                 <li class="text-lg font-semibold px-4"><a href="./Userpage.php">Home</a></li>
@@ -48,7 +47,7 @@ if(isset($_POST['logout'])){
         </nav>
     </header>
     <!-- my code goes here -->
-    <h1 class="text-center decoration-solid text-black text-7xl font-bold mt-10">Search Doctor</h1>
+    <h1 class="text-center decoration-solid text-black text-3xl font-bold mt-10">Search Doctor</h1>
     <div class="container my-5">
         <form method="post" class="my-10 ">
             <input class="border-4 ml-5" type="text" placeholder="Search Doctor By ID" name="search">
