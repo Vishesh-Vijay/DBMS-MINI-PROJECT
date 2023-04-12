@@ -68,8 +68,8 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
             </ul>
         </nav>
     </header>
-    <h1 class="text-3xl flex justify-center mt-4 font-bold">Register Patient</h1>
-    <div class="flex justify-center mt-8">
+    <h1 class="text-4xl flex justify-center mt-7 font-bold">Register Patient</h1>
+    <div class="flex justify-center mt-9">
     <form class="w-full max-w-lg" action="./registerpatient.php  bg-gray-500 shadow-md rounded" method="post" >
         <div class="flex flex-wrap -mx-3 mb-6">
         <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -134,7 +134,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         
         </div>
     </div>
-    <button class="bg-red-500 text-white px-4 py-2 rounded-lg mt-2 mb-6 " type="submit">Register</button>
+    <button class="bg-red-500 text-white px-4 py-2 rounded-lg mt-2 mb-6 ml-48 " type="submit">Register</button>
 </form>
     </div>
 </body>

@@ -48,10 +48,10 @@ if(isset($_POST['logout'])){
     </header>
     <!-- my code goes here -->
     <h1 class="text-center decoration-solid text-black text-3xl font-bold mt-10">Search Doctor</h1>
-    <div class="container my-5">
-        <form method="post" class="my-10 px-6">
-            <input class="border-4 ml-5 px-4" type="text" placeholder="Search Doctor By ID" name="search">
-            <button class="ml-2 text-white bg-red-500 hover:bg-red-700 focus:ring-4 rounded-lg text-sm px-4 py-2 text-center inline-flex items-center" name="submit">Search</button>
+    <div class="container my-5  ">
+        <form method="post" class="my-10 px-6 flex items-center justify-center">
+            <input class="border-2 ml-14 px-4 py-3" type="text" placeholder="Enter ID" name="search">
+            <button class=" px-4 py-3 text-white bg-red-500 hover:bg-red-700  text-l px-4 py-2 " name="submit">Search</button>
         </form>
         <div class="container my-5 px-5 mx-4">
             <table class="table-auto w-full scroll-ml-3">
