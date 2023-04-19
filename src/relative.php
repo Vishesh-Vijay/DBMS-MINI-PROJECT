@@ -21,20 +21,18 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     include "dbconnect.php";
     $firstname=$_POST["firstname"];
     $lastname=$_POST["lastname"];
-    $age=$_POST["age"];
-    $medicalhistory=$_POST["medicalhistory"];
-    $doctor=$_POST["doctor"];
-    $address=$_POST["address"];
-    $address2=$_POST["address2"];
-    $address3=$_POST["address3"];
-    $phone=$_POST["phone"];
-    $bloodgroup=$_POST["bloodgroup"];
+    $Donor_ID=$_POST["Donor_ID"];
+    $relation=$_POST["relation"];
+    $street=$_POST["street"];
+    $city=$_POST["city"];
+    $state=$_POST["state"];
+
     
 
-    $sql="INSERT INTO `patient` (`first_name`, `last_name`, `age`,`medical_history`, `doctor`, `address`,`address2`, `address3`, `phone`, `Blood_group`) VALUES ('$firstname', '$lastname','$age', '$medicalhistory','$doctor', '$address','$address2', '$address3','$phone', '$bloodgroup');";
+    $sql="INSERT INTO `next_of_kin` (`Donor_ID`, `first_name`, `last_name`, `relation`,`street`, `city`, `state`) VALUES ('$Donor_ID','$firstname', '$lastname', '$relation','$street', '$city','$state');";
     if (mysqli_query($conn, $sql)) {
         echo "Record inserted successfully";
-        header("Location:./requireorgan.php");
+        header("Location:./Userpage.php");
       } else {
         echo "Error inserting record: " . mysqli_error($conn);
       }
@@ -55,7 +53,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
             <div class="ml-4 flex items-center">
                 <img src="./images/logo.png" alt="">
                 <h1 class="text-3xl ml-2 font-semibold">LifeLink</h1>
-                <a href="patient.php"><button type="button" class=" ml-5 text-white bg-red-500 hover:bg-red-700 focus:ring-4 rounded-lg text-sm px-4 py-2 text-center inline-flex items-center">Back
+                <a href="donor.php"><button type="button" class=" ml-5 text-white bg-red-500 hover:bg-red-700 focus:ring-4 rounded-lg text-sm px-4 py-2 text-center inline-flex items-center">Back
 </button></a>
             </div>
             <ul class="flex justify-evenly mr-8">
@@ -68,9 +66,9 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
             </ul>
         </nav>
     </header>
-    <h1 class="text-4xl flex justify-center mt-7 font-bold">Register Patient</h1>
+    <h1 class="text-4xl flex justify-center mt-7 font-bold">Add Relative</h1>
     <div class="flex justify-center mt-9">
-    <form class="w-full max-w-lg" action="./registerpatient.php"  bg-gray-500 shadow-md rounded" method="post" >
+    <form class="w-full max-w-lg" action="./relative.php"  bg-gray-500 shadow-md rounded" method="post" >
         <div class="flex flex-wrap -mx-3 mb-6">
         <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
         <label class="text-gray-700 text-l font-bold mb-2" for="grid-first-name">
@@ -85,56 +83,37 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         <input class=" w-full text-gray-700 border rounded py-3 px-4 id="grid-last-name" name="lastname" type="text">
         </div>
         <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-        <label class="text-gray-700 text-l font-bold mb-2" for="grid-first-name">
-            Doctor
+        <label class="text-gray-700  font-bold mb-2" for="grid-first-name">
+            Donor ID
         </label>
-        <input class=" w-full text-gray-700 border rounded py-3 px-4 mb-3 " id="grid-first-name" name="doctor" type="text">
+        <input class=" w-full text-gray-700 border rounded py-3 px-4 mb-3 " id="grid-first-name" name="Donor_ID" type="text">
         </div>
-        <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-        <label class="text-gray-700 text-L font-bold mb-2" for="grid-zip">
-            Age
+        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+        <label class="text-gray-700 text-l font-bold mb-2" for="grid-zip">
+            Relation
         </label>
-        <input class="w-full text-gray-700 border rounded py-3 px-4" id="grid-zip" name="age" ">
-        </div>
-        <div class="w-full px-3">
-        <label class="text-gray-700 text-l font-bold mb-2" for="grid-password">
-            Medical History
-        </label>
-        <input class="w-full text-gray-700 border  rounded py-3 px-4 mb-3 " id="grid-password" name="medicalhistory">
+        <input class="w-full text-gray-700 border rounded py-3 px-4" id="grid-zip" name="relation" ">
         </div>
         <div class="w-full px-3">
         <label class="text-gray-700 text-l font-bold mb-2" for="grid-password">
-            Address1
+            Street
         </label>
-        <input class="w-full text-gray-700 border rounded py-3 px-4 mb-3" id="grid-password" name="address">
+        <input class="w-full text-gray-700 border  rounded py-3 px-4 mb-3 " id="grid-password" name="street">
+        </div>
+        <div class="w-full px-3">
+        <label class="text-gray-700 text-l font-bold mb-2" for="grid-password">
+            City
+        </label>
+        <input class="w-full text-gray-700 border rounded py-3 px-4 mb-3" id="grid-password" name="city">
         </div>
         <div class="w-full px-3">
         <label class="text-gray-700 text-l font-bold mb-2">
-            Address2
+            State
         </label>
-        <input class="w-full  text-gray-700 border  rounded py-3 px-4 mb-3" name="address2">
-        </div>
-        <div class="w-full px-3">
-        <label class="text-gray-700 text-l font-bold mb-2" for="grid-password">
-            Address3
-        </label>
-        <input class="w-full text-gray-700 border  rounded py-3 px-4 mb-3" name="address3" >
-        </div>
-        <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-        <label class="text-gray-700 text-l font-bold mb-2" for="grid-city">
-            Phone
-        </label>
-        <input class=" w-full  text-gray-700 border  rounded py-3 px-4" id="grid-city" name="phone" type="text">
-        </div>
-        <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-        <label class=" text-gray-700 text-l font-bold mb-2" for="grid-state">
-            Blood Group
-        </label>
-        <input class="w-full text-gray-700 border  rounded py-3 px-4 " id="grid-city" name="bloodgroup" type="text">
-        
+        <input class="w-full  text-gray-700 border  rounded py-3 px-4 mb-3" name="state">
         </div>
     </div>
-    <button class="bg-red-500 text-white px-4 py-2 rounded-lg mt-2 mb-6 ml-48 " type="submit">Register</button>
+    <button class="bg-red-500 text-white px-6 py-3 rounded-lg mt-2 mb-6 ml-60 " type="submit">Add</button>
 </form>
     </div>
 </body>
