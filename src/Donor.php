@@ -65,6 +65,12 @@ if(isset($_POST['logout'])){
   Delete Donor &nbsp;&nbsp;
 </button></a>
 </div>
+<div class="flex justify-center">
+    <a href="./displayalldonors.php">
+<button class="bg-red-500 text-white mt-1 py-4 px-72 hover:bg-red-700 rounded border-red-500 ">
+&nbsp; &nbsp;&nbsp; Display All Donors &nbsp; &nbsp;&nbsp; 
+</button></a>
+</div>
 <div class="w-screen mt-10 flex justify-center items-center">
                 <img src="./images/patient.jpg" alt="welcome" class="h-64" >
             </div>

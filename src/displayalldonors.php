@@ -35,7 +35,7 @@ if(isset($_POST['logout'])){
             <div class="ml-4 flex items-center">
                 <img src="./images/logo.png" alt="">
                 <h1 class="text-3xl ml-2 font-semibold">LifeLink</h1>
-                <a href="patient.php"><button type="button"
+                <a href="donor.php"><button type="button"
                         class=" ml-5 text-white bg-red-500 hover:bg-red-700 focus:ring-4 rounded-lg text-sm px-4 py-2 text-center inline-flex items-center">Back
                     </button></a>
             </div>
@@ -51,7 +51,7 @@ if(isset($_POST['logout'])){
     </header>
             <?php
                     include "dbconnect.php";
-                    $query="Select * from `patient`; ";
+                    $query="Select * from `donor`; ";
                     if($result = $conn->query($query)){
                         if(mysqli_num_rows($result) > 0){
                             echo'<thead>
@@ -73,7 +73,7 @@ if(isset($_POST['logout'])){
                             while ($row = $result->fetch_assoc()) {
                             echo'
                             <tr>
-                            <td class="border px-4 py-2">'.$row['Patient_ID'].'</td>
+                            <td class="border px-4 py-2">'.$row['Donor_ID'].'</td>
                             <td class="border px-4 py-2">'.$row['first_name'].'</td>
                             <td class="border px-4 py-2">'.$row['last_name'].'</td>
                             <td class="border px-4 py-2">'.$row['age'].'</td>
