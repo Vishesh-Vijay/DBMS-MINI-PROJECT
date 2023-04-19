@@ -12,7 +12,7 @@ if(isset($_SESSION['username']) =="") {
     header("Location: ./Login.php");
 }
 if(isset($_POST['logout'])){
-    setcookie(session_name(), '', 100);
+    setcookie(session_name(), '', 100)  ;
     session_unset();
     session_destroy();
     header("Location: ./Login.php");
@@ -63,7 +63,7 @@ if(isset($_POST['logout'])){
                <img src="./images/patient.png" alt="patient" class="mx-auto pt-4">
                <h3 class="text-xl font-semibold text-center pt-4">Patients</h3>
                <div class="flex justify-center mt-6">
-                    <button class="p-3 border border-white rounded-3xl"><a href="./Patient.php">Got to patients</a><button> 
+                    <button class="p-3 border border-white rounded-3xl"><a href="./patient.php">Got to patients</a><button> 
                </div>
             </div>
             <div class="w-64 h-64 bg-black text-white rounded-3xl p-4">

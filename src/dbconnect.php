@@ -2,10 +2,7 @@
    
     $servername = "localhost"; 
     $username = "root"; 
-    $password = "vishesh@8220";
-    // $username = "tsunami"; 
-    // $password = "munia2003";
-   
+    $password = "";
    
     $database = "Organ_Donation";
      $conn = mysqli_connect($servername, 
