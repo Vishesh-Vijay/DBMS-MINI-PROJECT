@@ -65,6 +65,12 @@ if(isset($_POST['logout'])){
   Delete Hospital &nbsp;&nbsp;
 </button></a>
 </div>
+<div class="flex justify-center">
+    <a href="./displayall.php">
+<button class="bg-red-500 text-white mt-1 py-4 px-80 hover:bg-red-700 rounded border-red-500 ">
+  Display Hospitals &nbsp;&nbsp;
+</button></a>
+</div>
 <div class="w-screen mt-10 flex justify-center items-center">
                 <img src="./images/patient.jpg" alt="welcome" class="h-64" >
             </div>

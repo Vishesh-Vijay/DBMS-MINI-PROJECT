@@ -93,7 +93,7 @@ if(isset($_POST['logout'])){
                             <h2 class=text-danger>Data not found</h2>
                             ';
                         }
-                    
+
                 }
                 ?>
         </table>

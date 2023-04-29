@@ -20,7 +20,6 @@ if(isset($_POST['logout'])){
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,7 +27,6 @@ if(isset($_POST['logout'])){
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Hospital</title>
 </head>
-
 <body>
     <header>
         <nav class="bg-black text-white p-2 flex justify-between items-center sticky">
@@ -94,5 +92,4 @@ if(isset($_POST['logout'])){
         </div>
     </div>
 </body>
-
 </html>
