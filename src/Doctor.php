@@ -25,7 +25,7 @@ if(isset($_POST['logout'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Patient</title>
+    <title>Doctor</title>
 </head>
 <body>
 <header>
@@ -49,20 +49,26 @@ if(isset($_POST['logout'])){
     <div class="flex justify-center">
     <a href="./registerdoctor.php">
 <button class="bg-red-500  text-white mt-10 py-4 px-80 hover:bg-red-700  rounded border-red-500 ">
-  Register Doctor
+  Register Doctor&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </button></a>
 </div>
 <div class="flex justify-center" >
 <a href="./searchdoctor.php">
 <button class="bg-red-500 text-white py-4 px-80 mt-1 hover:bg-red-700 rounded border-red-500">
-  Search Doctor &nbsp;
+  Search Doctor &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </button>
 </a>
 </div>
 <div class="flex justify-center">
     <a href="./deletedoctor.php">
 <button class="bg-red-500 text-white mt-1 py-4 px-80 hover:bg-red-700 rounded border-red-500 ">
-  Delete Doctor &nbsp;&nbsp;
+  Delete Doctor &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</button></a>
+</div>
+<div class="flex justify-center">
+    <a href="./displayalldoctors.php">
+<button class="bg-red-500 text-white mt-1 py-4 px-80 hover:bg-red-700 rounded border-red-500 ">
+  Display All Doctors
 </button></a>
 </div>
 <div class="w-screen mt-10 flex justify-center items-center">
