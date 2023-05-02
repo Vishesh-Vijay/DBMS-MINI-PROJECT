@@ -50,7 +50,7 @@ if(isset($_POST['logout'])){
     <h1 class="text-center decoration-solid text-black text-3xl font-bold mt-10">Search Donor</h1>
     <div class=" my-5 container">
         <form method="post" class="my-10 px-6 flex justify-center">
-            <input class="border-2 ml-14 px-4 py-3" type="text" placeholder="Search Donor By ID" name="search">
+            <input class="border-2 ml-14 px-4 py-3" type="text" placeholder="Search Organ" name="search">
             <button class=" text-white bg-red-500 hover:bg-red-700 text-l px-4 py-3 " name="submit">Search</button>
         </form>
         <div class="container my-5 px-7 mx-4">
@@ -58,7 +58,7 @@ if(isset($_POST['logout'])){
                 <?php
                 if(isset($_POST['submit'])){
                     $search=$_POST['search'];
-                    $sql="Select * from `donor` where Donor_ID='$search'";
+                    $sql="Select * from `donor` NATURAL JOIN `organs` where organ='$search';";
                     $result=mysqli_query($conn, $sql);
                     if($result){
                         if(mysqli_num_rows($result) > 0){

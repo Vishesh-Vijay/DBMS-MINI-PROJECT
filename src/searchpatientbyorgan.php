@@ -51,28 +51,21 @@ if(isset($_POST['logout'])){
     </header>
     <h1 class="text-3xl font-bold mt-6 flex justify-center">Search Patient</h1>
     <div class="flex items-center justify-center mt-10">
-        <form action="./searchpatient.php" method="post" class="my-10">
+        <form action="./searchpatientbyorgan.php" method="post" class="my-10">
             <div class="flex flex-col rounded-2">
-                <input class="py-3 px-4  text-gray-800  border-2" type="text" name="first_name"
-                    placeholder="Enter First Name">
-                <input class="py-3 px-4 mt-2 text-gray-800  border-2" type="text" name="last_name"
-                    placeholder="Enter Last Name">
+                <input class="py-3 px-4 mt-2 text-gray-800  border-2" type="text" name="organ"
+                    placeholder="Enter Organ">
                 <button class="py-3 px-4 mt-4 bg-red-500 hover:bg-red-700 text-gray-100" type="submit">Submit</button>
             </div>
         </form>
     </div>
-    <div class="flex items-center justify-center">
-    <a href="searchpatientbyorgan.php"><button type="button"
-                        class=" text-white bg-red-500 hover:bg-red-700 focus:ring-4 rounded-lg text-sm px-8 py-4 text-center inline-flex items-center">Search By Organ
-                    </button></a></div>
     <div class="container my-5 px-5 mx-4">
         <table class="table-auto w-full scroll-ml-3">
             <?php
                 if($_SERVER["REQUEST_METHOD"]=="POST"){
                     include "dbconnect.php";
-                    $first_name=$_POST['first_name'];
-                    $last_name=$_POST['last_name'];
-                    $sql="Select * from `patient` where (`first_name`='$first_name' AND `last_name`='$last_name'); ";
+                    $organ=$_POST['organ'];
+                    $sql="Select * from `patient` NATURAL JOIN `organ_required` where (`organ`='$organ'); ";
                     $result=mysqli_query($conn, $sql);
                     if($result){
                         if(mysqli_num_rows($result) > 0){
