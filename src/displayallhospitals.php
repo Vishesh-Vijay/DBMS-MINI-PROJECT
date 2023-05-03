@@ -26,7 +26,7 @@ if(isset($_POST['logout'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Patient</title>
+    <title>All Hospitals</title>
 </head>
 
 <body>
@@ -35,7 +35,7 @@ if(isset($_POST['logout'])){
             <div class="ml-4 flex items-center">
                 <img src="./images/logo.png" alt="">
                 <h1 class="text-3xl ml-2 font-semibold">LifeLink</h1>
-                <a href="patient.php"><button type="button"
+                <a href="Hospital.php"><button type="button"
                         class=" ml-5 text-white bg-red-500 hover:bg-red-700 focus:ring-4 rounded-lg text-sm px-4 py-2 text-center inline-flex items-center">Back
                     </button></a>
             </div>
@@ -49,30 +49,26 @@ if(isset($_POST['logout'])){
             </ul>
         </nav>
     </header>
-	<h1 class="text-3xl font-bold mt-6 flex justify-center">Patients</h1>
+	<h1 class="text-3xl font-bold mt-8 flex justify-center">Hospitals</h1>
 
-	<div class="overflow-x-auto mr-8">
+	<div class="overflow-x-auto w-full mr-8">
 		<?php
 
 			// Establish a connection with the database
 			$connection = mysqli_connect("localhost", "root", "123", "Organ_Donation");
 
 			// Execute the SELECT query
-			$result = mysqli_query($connection, "SELECT * FROM patient");
+			$result = mysqli_query($connection, "SELECT * FROM hospital");
 
 			// Create a table with Tailwind CSS classes
-			echo '<table class="table-auto w-full border-collapse border border-gray-500 m-8 shadow-lg">';
+			echo '<table class="table-auto w-3/4 mx-auto my-4 border border-gray-500 m-8 shadow-lg">';
+            // max-w-xs, max-w-sm, or max-w-md
 			echo '<thead>
 			<tr>
-			<th class="px-4 py-2 bg-gray-200 border border-gray-500">Patient ID</th>
-			<th class="px-4 py-2 bg-gray-200 border border-gray-500">First Name</th>
-			<th class="px-4 py-2 bg-gray-200 border border-gray-500">Last Name</th>
-			<th class="px-4 py-2 bg-gray-200 border border-gray-500">Age</th>
-			<th class="px-4 py-2 bg-gray-200 border border-gray-500">Blood Group</th>
-			<th class="px-4 py-2 bg-gray-200 border border-gray-500">Medical History</th>
-			<th class="px-4 py-2 bg-gray-200 border border-gray-500">Doctor</th>
+			<th class="px-4 py-2 bg-gray-200 border border-gray-500">Hospital ID</th>
+			<th class="px-4 py-2 bg-gray-200 border border-gray-500">Hospital Name</th>
 			<th class="px-4 py-2 bg-gray-200 border border-gray-500">City</th>
-			<th class="px-4 py-2 bg-gray-200 border border-gray-500">Phone Number</th>
+			<th class="px-4 py-2 bg-gray-200 border border-gray-500">State</th>
 
 
 			</tr>
@@ -82,16 +78,10 @@ if(isset($_POST['logout'])){
 			echo '<tbody class="text-center">';
 			while($row = mysqli_fetch_array($result)) {
 				echo '<tr class="border border-gray-500">';
-				echo '<td class="px-4 py-2">'.$row['Patient_ID'].'</td>';
-				echo '<td class="px-4 py-2">'.$row['first_name'].'</td>';
-				echo '<td class="px-4 py-2">'.$row['last_name'].'</td>';
-				echo '<td class="px-4 py-2">'.$row['age'].'</td>';
-				echo '<td class="px-4 py-2">'.$row['Blood_group'].'</td>';
-				echo '<td class="px-4 py-2">'.$row['medical_history'].'</td>';
-				echo '<td class="px-4 py-2">'.$row['doctor'].'</td>';
-				echo '<td class="px-4 py-2">'.$row['address'].'</td>';
-				echo '<td class="px-4 py-2">'.$row['phone'].'</td>';
-
+				echo '<td class="px-4 py-2">'.$row['Hospital_ID'].'</td>';
+				echo '<td class="px-4 py-2">'.$row['Hospital_name'].'</td>';
+				echo '<td class="px-4 py-2">'.$row['City'].'</td>';
+				echo '<td class="px-4 py-2">'.$row['State'].'</td>';
 				echo '</tr>';
 			}
 			echo '</tbody>';
