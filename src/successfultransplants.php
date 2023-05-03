@@ -26,7 +26,7 @@ if(isset($_POST['logout'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>All Donors</title>
+    <title>Patient</title>
 </head>
 
 <body>
@@ -35,7 +35,7 @@ if(isset($_POST['logout'])){
             <div class="ml-4 flex items-center">
                 <img src="./images/logo.png" alt="">
                 <h1 class="text-3xl ml-2 font-semibold">LifeLink</h1>
-                <a href="donor.php"><button type="button"
+                <a href="patient.php"><button type="button"
                         class=" ml-5 text-white bg-red-500 hover:bg-red-700 focus:ring-4 rounded-lg text-sm px-4 py-2 text-center inline-flex items-center">Back
                     </button></a>
             </div>
@@ -49,7 +49,8 @@ if(isset($_POST['logout'])){
             </ul>
         </nav>
     </header>
-    <h1 class="text-3xl font-bold mt-6 flex justify-center">Donors</h1>
+	<h1 class="text-3xl font-bold mt-6 flex justify-center">Transplants</h1>
+
 	<div class="overflow-x-auto mr-8">
 		<?php
 
@@ -57,13 +58,13 @@ if(isset($_POST['logout'])){
 			$connection = mysqli_connect("localhost", "root", "", "Organ_Donation");
 
 			// Execute the SELECT query
-			$result = mysqli_query($connection, "SELECT * FROM donor");
+			$result = mysqli_query($connection, "SELECT * FROM patient NATURAL JOIN transplants ");
 
 			// Create a table with Tailwind CSS classes
 			echo '<table class="table-auto w-full border-collapse border border-gray-500 m-8 shadow-lg">';
 			echo '<thead>
 			<tr>
-			<th class="px-4 py-2 bg-gray-200 border border-gray-500">Donor ID</th>
+			<th class="px-4 py-2 bg-gray-200 border border-gray-500">Patient ID</th>
 			<th class="px-4 py-2 bg-gray-200 border border-gray-500">First Name</th>
 			<th class="px-4 py-2 bg-gray-200 border border-gray-500">Last Name</th>
 			<th class="px-4 py-2 bg-gray-200 border border-gray-500">Age</th>
@@ -72,6 +73,11 @@ if(isset($_POST['logout'])){
 			<th class="px-4 py-2 bg-gray-200 border border-gray-500">Doctor</th>
 			<th class="px-4 py-2 bg-gray-200 border border-gray-500">City</th>
 			<th class="px-4 py-2 bg-gray-200 border border-gray-500">Phone Number</th>
+            <th class="px-4 py-2 bg-gray-200 border border-gray-500">Organ ID</th>
+           
+			<th class="px-4 py-2 bg-gray-200 border border-gray-500">Date</th>
+			<th class="px-4 py-2 bg-gray-200 border border-gray-500">Status</th>
+
 
 
 			</tr>
@@ -81,7 +87,7 @@ if(isset($_POST['logout'])){
 			echo '<tbody class="text-center">';
 			while($row = mysqli_fetch_array($result)) {
 				echo '<tr class="border border-gray-500">';
-				echo '<td class="px-4 py-2">'.$row['Donor_ID'].'</td>';
+				echo '<td class="px-4 py-2">'.$row['Patient_ID'].'</td>';
 				echo '<td class="px-4 py-2">'.$row['first_name'].'</td>';
 				echo '<td class="px-4 py-2">'.$row['last_name'].'</td>';
 				echo '<td class="px-4 py-2">'.$row['age'].'</td>';
@@ -90,6 +96,10 @@ if(isset($_POST['logout'])){
 				echo '<td class="px-4 py-2">'.$row['doctor'].'</td>';
 				echo '<td class="px-4 py-2">'.$row['address'].'</td>';
 				echo '<td class="px-4 py-2">'.$row['phone'].'</td>';
+				echo '<td class="px-4 py-2">'.$row['organ_ID'].'</td>';
+				echo '<td class="px-4 py-2">'.$row['date'].'</td>';
+				echo '<td class="px-4 py-2">'.$row['Status'].'</td>';
+
 
 				echo '</tr>';
 			}

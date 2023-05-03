@@ -91,8 +91,11 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         <input class="w-full text-gray-700 border  rounded py-3 px-4 mb-3 " id="grid-password" name="status">
         </div>
     </div>
-    <button class="bg-red-500 text-white px-4 py-2 rounded-lg mt-2 mb-6 ml-48 " type="submit">Successfully Transplanted</button>
+    <button class="bg-red-500 text-white px-4 py-2 rounded-lg mt-2 mb-6 ml-48 " type="submit">Success!</button>
 </form>
     </div>
+    <div class="flex justify-center">
+    <a href="successfultransplants.php"><button type="button" class="  text-white bg-red-500 hover:bg-red-700 focus:ring-4 rounded-lg text-sm px-5 py-3 text-center inline-flex items-center">View All Successful Transplants
+</button></a></div>
 </body>
 </html>

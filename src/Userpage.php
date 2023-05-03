@@ -53,7 +53,7 @@ if(isset($_POST['logout'])){
                     How can we help you today?
                 </div>
                 <button class="p-3    border border-red text-s rounded-3xl"><a href="./transplants.php">Transplants</a><button> 
-                <button class="p-3   border border-red rounded-3xl"><a href="./organs.php">Show all organs</a><button> 
+                <button class="p-3   border border-red rounded-3xl"><a href="./organsuserpage.php">Show all organs</a><button> 
             </div>
             <div class="w-1/2 flex justify-center items-center">
                 <img src="./images/welcome.jpg" alt="welcome" class="h-64" >
