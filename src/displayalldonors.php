@@ -54,7 +54,7 @@ if(isset($_POST['logout'])){
 		<?php
 
 			// Establish a connection with the database
-			$connection = mysqli_connect("localhost", "root", "", "Organ_Donation");
+			$connection = mysqli_connect("localhost", "root", "123", "Organ_Donation");
 
 			// Execute the SELECT query
 			$result = mysqli_query($connection, "SELECT * FROM donor");
