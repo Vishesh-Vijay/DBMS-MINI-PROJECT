@@ -29,10 +29,18 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     $address2=$_POST["address2"];
     $address3=$_POST["address3"];
     $phone=$_POST["phone"];
-    
+    $organ=$_POST["organ"];
     
 
     $sql="INSERT INTO `donor` (`first_name`, `last_name`, `age`,`Blood_group`,`medical_history`, `doctor`, `address`,`address2`, `address3`, `phone`) VALUES ('$first_name', '$last_name','$age',  '$Blood_group', '$medical_history','$doctor', '$address','$address2', '$address3','$phone');";
+    if (mysqli_query($conn, $sql)) {
+        echo "Record inserted successfully";
+        header("Location:./organavailable.php");
+      } else {
+        echo "Error inserting record: " . mysqli_error($conn);
+      }
+
+      $sql="INSERT INTO `organ` (`organ`, `Donor_ID`, `status`) VALUES ('$organ', '$);";
     if (mysqli_query($conn, $sql)) {
         echo "Record inserted successfully";
         header("Location:./organavailable.php");
@@ -134,8 +142,13 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         <label class=" text-gray-700 text-l font-bold mb-2" for="grid-state">
             Blood Group
         </label>
-        <input class="w-full text-gray-700 border  rounded py-3 px-4 " id="grid-city" name="Blood_group" type="text">
-        
+        <input class="w-full text-gray-700 border  rounded py-3 px-4 " id="grid-city" name="Blood_group" type="text">        
+        </div>
+        <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+        <label class=" text-gray-700 text-l font-bold mb-2" for="grid-organ">
+            Organ
+        </label>
+        <input class="w-full text-gray-700 border  rounded py-3 px-4 " id="grid-organ" name="organ" type="text">        
         </div>
     </div>
     <button class="bg-red-500 text-white px-4 py-2 rounded-lg mt-2 mb-6 ml-48 " type="submit">Register</button>

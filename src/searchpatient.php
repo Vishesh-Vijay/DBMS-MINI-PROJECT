@@ -61,6 +61,10 @@ if(isset($_POST['logout'])){
             </div>
         </form>
     </div>
+    <div class="flex items-center justify-center">
+    <a href="searchpatientbyorgan.php"><button type="button"
+                        class=" text-white bg-red-500 hover:bg-red-700 focus:ring-4 rounded-lg text-sm px-8 py-4 text-center inline-flex items-center">Search By Organ
+                    </button></a></div>
     <div class="container my-5 px-5 mx-4">
         <table class="table-auto w-full scroll-ml-3">
             <?php

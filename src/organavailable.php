@@ -40,7 +40,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Document</title>
+    <title>organs available</title>
 </head>
 <body>
 <header>
@@ -61,7 +61,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
             </ul>
         </nav>
     </header>
-    <div class="text-4xl flex justify-center mt-9"> Organ Available</div>
+    <div class="text-4xl flex justify-center mt-9">Organ Available</div>
     <div class="flex justify-center mt-10">
     <div class="w-full max-w-xs">
   <form class=" px-8 pt-6 pb-8 mb-4" action="./organavailable.php" method="post">

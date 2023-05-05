@@ -1,21 +1,21 @@
 <?php
 if(!isset($_SERVER['HTTP_REFERER'])){
-    header("Location: ./Login.php");
-    exit;
+	header("Location: ./Login.php");
+	exit;
   }
 session_start();
 include "dbconnect.php";
 if(isset($_SESSION['username']) =="") {
-    setcookie(session_name(), '', 100);
-    session_unset();
-    session_destroy();
-    header("Location: ./Login.php");
+	setcookie(session_name(), '', 100);
+	session_unset();
+	session_destroy();
+	header("Location: ./Login.php");
 }
 if(isset($_POST['logout'])){
-    setcookie(session_name(), '', 100)  ;
-    session_unset();
-    session_destroy();
-    header("Location: ./Login.php");
+	setcookie(session_name(), '', 100)  ;
+	session_unset();
+	session_destroy();
+	header("Location: ./Login.php");
 }
 ?>
 <!DOCTYPE html>
@@ -49,57 +49,59 @@ if(isset($_POST['logout'])){
             </ul>
         </nav>
     </header>
-            <?php
-                    include "dbconnect.php";
-                    $query="Select * from `patient`; ";
-                    if($result = $conn->query($query)){
-                        if(mysqli_num_rows($result) > 0){
-                            echo'<thead>
-                            <tr>
-                            <th class="border px-4 py-2">No</th>
-                            <th class="border px-4 py-2">First name</th>
-                            <th class="border px-4 py-2">Second name</th> 
-                            <th class="border px-4 py-2">Age</th> 
-                            <th class="border px-4 py-2">Blood group</th> 
-                            <th class="border px-4 py-2">Medical history</th> 
-                            <th class="border px-4 py-2">Doctor operated</th> 
-                            <th class="border px-4 py-2">Address 1</th> 
-                            <th class="border px-4 py-2">Address 2</th> 
-                            <th class="border px-4 py-2">Address 3</th> 
-                            <th class="border px-4 py-2">Phone number</th> 
-                            </tr>
-                            </thead>
-                            ';
-                            while ($row = $result->fetch_assoc()) {
-                            echo'
-                            <tr>
-                            <td class="border px-4 py-2">'.$row['Patient_ID'].'</td>
-                            <td class="border px-4 py-2">'.$row['first_name'].'</td>
-                            <td class="border px-4 py-2">'.$row['last_name'].'</td>
-                            <td class="border px-4 py-2">'.$row['age'].'</td>
-                            <td class="border px-4 py-2">'.$row['Blood_group'].'</td>
-                            <td class="border px-4 py-2">'.$row['medical_history'].'</td>
-                            <td class="border px-4 py-2">'.$row['doctor'].'</td>
-                            <td class="border px-4 py-2">'.$row['address'].'</td>
-                            <td class="border px-4 py-2">'.$row['address2'].'</td>
-                            <td class="border px-4 py-2">'.$row['address3'].'</td>
-                            <td class="border px-4 py-2">'.$row['phone'].'</td>
-                            </tr>
-                            ';}
-                            $result->free();
-                        }
-                        else{
-                            echo'
-                            <h2 class=text-danger>Data not found</h2>
-                            ';
-                        }
-                    
-                }
-                ?>
-        </table>
+	<h1 class="text-3xl font-bold mt-6 flex justify-center">Patients</h1>
 
-    </div>
+	<div class="overflow-x-auto mr-8">
+		<?php
 
+			// Establish a connection with the database
+			$connection = mysqli_connect("localhost", "root", "", "Organ_Donation");
+
+			// Execute the SELECT query
+			$result = mysqli_query($connection, "SELECT * FROM patient");
+
+			// Create a table with Tailwind CSS classes
+			echo '<table class="table-auto w-full border-collapse border border-gray-500 m-8 shadow-lg">';
+			echo '<thead>
+			<tr>
+			<th class="px-4 py-2 bg-gray-200 border border-gray-500">Patient ID</th>
+			<th class="px-4 py-2 bg-gray-200 border border-gray-500">First Name</th>
+			<th class="px-4 py-2 bg-gray-200 border border-gray-500">Last Name</th>
+			<th class="px-4 py-2 bg-gray-200 border border-gray-500">Age</th>
+			<th class="px-4 py-2 bg-gray-200 border border-gray-500">Blood Group</th>
+			<th class="px-4 py-2 bg-gray-200 border border-gray-500">Medical History</th>
+			<th class="px-4 py-2 bg-gray-200 border border-gray-500">Doctor</th>
+			<th class="px-4 py-2 bg-gray-200 border border-gray-500">City</th>
+			<th class="px-4 py-2 bg-gray-200 border border-gray-500">Phone Number</th>
+
+
+			</tr>
+			</thead>';
+
+			// Fetch rows from the result set and display data in table with Tailwind CSS classes
+			echo '<tbody class="text-center">';
+			while($row = mysqli_fetch_array($result)) {
+				echo '<tr class="border border-gray-500">';
+				echo '<td class="px-4 py-2">'.$row['Patient_ID'].'</td>';
+				echo '<td class="px-4 py-2">'.$row['first_name'].'</td>';
+				echo '<td class="px-4 py-2">'.$row['last_name'].'</td>';
+				echo '<td class="px-4 py-2">'.$row['age'].'</td>';
+				echo '<td class="px-4 py-2">'.$row['Blood_group'].'</td>';
+				echo '<td class="px-4 py-2">'.$row['medical_history'].'</td>';
+				echo '<td class="px-4 py-2">'.$row['doctor'].'</td>';
+				echo '<td class="px-4 py-2">'.$row['address'].'</td>';
+				echo '<td class="px-4 py-2">'.$row['phone'].'</td>';
+
+				echo '</tr>';
+			}
+			echo '</tbody>';
+
+			echo "</table>";
+
+			// Close the connection
+			mysqli_close($connection);
+		?>		
+	</div>
 </body>
 
 </html>

@@ -3,6 +3,8 @@
     $servername = "localhost"; 
     // $username = "tsunami"; 
     // $password = "munia2003";
+    $username = "root"; 
+    $password = "123";
    
     $database = "Organ_Donation";
      $conn = mysqli_connect($servername, 
