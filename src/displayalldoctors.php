@@ -50,15 +50,15 @@ if(isset($_POST['logout'])){
         </nav>
     </header>
 	<h1 class="text-3xl font-bold mt-6 flex justify-center">Doctors</h1>
-
+ 
 	<div class="overflow-x-auto mr-8">
 		<?php
 
 			// Establish a connection with the database
-			$connection = mysqli_connect("localhost", "root", "", "Organ_Donation");
+			include "dbconnect.php";
 
 			// Execute the SELECT query
-			$result = mysqli_query($connection, "SELECT * FROM doctor");
+			$result = mysqli_query($conn, "SELECT * FROM doctor");
 
 			// Create a table with Tailwind CSS classes
 			echo '<table class="table-auto w-full border-collapse border border-gray-500 m-8 shadow-lg">';
@@ -92,7 +92,6 @@ if(isset($_POST['logout'])){
 			echo "</table>";
 
 			// Close the connection
-			mysqli_close($connection);
 		?>		
 	</div>
 </body>

@@ -19,7 +19,7 @@ if (isset($_POST['logout'])) {
 include "dbconnect.php";
 
 // Fetch all available organs from the database
-$organs_query = mysqli_query($conn, "SELECT DISTINCT organ FROM organs");
+$organs_query = mysqli_query($conn, "SELECT DISTINCT organ FROM organs WHERE `status`='YES';");
 $organs = mysqli_fetch_all($organs_query, MYSQLI_ASSOC);
 ?>
 
@@ -52,10 +52,10 @@ $organs = mysqli_fetch_all($organs_query, MYSQLI_ASSOC);
             </ul>
         </nav>
     </header>
-    <h1 class="text-3xl font-bold mt-6 flex justify-center">Organs Required</h1>
+    <h1 class="text-3xl font-bold mt-6 flex justify-center">Organs Available</h1>
 
     <div class="mt-8 flex justify-center">
-        <form action="organsrequired.php" method="get">
+        <form action="organs.php" method="get">
             <label for="organ" class="mr-2">Select an organ:</label>
             <select name="organ" id="organ" class="p-2 rounded-md border-gray-500 border-2">
                 <option value="">All Organs</option>
@@ -74,7 +74,7 @@ $organs = mysqli_fetch_all($organs_query, MYSQLI_ASSOC);
         // Check if a specific organ was selected
         if (isset($_GET['organ']) && !empty($_GET['organ'])) {
             $organ = mysqli_real_escape_string($conn, $_GET['organ']);
-            $query = "SELECT * FROM organs NATURAL JOIN donor WHERE organ = '$organ' ";
+            $query = "SELECT * FROM organs NATURAL JOIN donor WHERE organ = '$organ' AND `status`='YES' ";
 			$result = mysqli_query($conn, $query);
 			$num_rows = mysqli_num_rows($result);
 			if ($num_rows > 0) {
@@ -117,14 +117,15 @@ $organs = mysqli_fetch_all($organs_query, MYSQLI_ASSOC);
 				echo "</table>";
 			}
 			else if($num_rows ==0) {
-				echo '<p class ="text-center m-8" >Organ Not Yet Available</p>';
+				$message = "no organs available";
+echo "<script type='text/javascript'>alert('$message');</script>";
 			}
 		}
 		else{
 			//print all organs
 			
             // $organ = mysqli_real_escape_string($conn, $_GET['organ']);
-            $query = "SELECT * FROM organs NATURAL JOIN donor";
+            $query = "SELECT * FROM organs NATURAL JOIN donor WHERE status='YES';";
 			$result = mysqli_query($conn, $query);
 			$num_rows = mysqli_num_rows($result);
 			if ($num_rows > 0) {
@@ -165,6 +166,10 @@ $organs = mysqli_fetch_all($organs_query, MYSQLI_ASSOC);
 				echo '</tbody>';
 	
 				echo "</table>";
+			}
+			else{
+				$message = "no organs available";
+echo "<script type='text/javascript'>alert('$message');</script>";
 			}
 			// mysqli_close($conn);
 		}

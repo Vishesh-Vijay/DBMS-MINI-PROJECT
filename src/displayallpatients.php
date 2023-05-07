@@ -55,10 +55,10 @@ if(isset($_POST['logout'])){
 		<?php
 
 			// Establish a connection with the database
-			$connection = mysqli_connect("localhost", "root", "", "Organ_Donation");
+			include "dbconnect.php";
 
 			// Execute the SELECT query
-			$result = mysqli_query($connection, "SELECT * FROM patient");
+			$result = mysqli_query($conn, "SELECT * FROM patient");
 
 			// Create a table with Tailwind CSS classes
 			echo '<table class="table-auto w-full border-collapse border border-gray-500 m-8 shadow-lg">';
@@ -97,9 +97,7 @@ if(isset($_POST['logout'])){
 			echo '</tbody>';
 
 			echo "</table>";
-
-			// Close the connection
-			mysqli_close($connection);
+       
 		?>		
 	</div>
 </body>

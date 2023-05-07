@@ -31,8 +31,8 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 
     $sql="INSERT INTO `doctor` (`first_name`, `last_name`, `department_name`, `hospital_id`, `phone_number`) values ('$firstname', '$lastname', '$departmentName', '$hospitalID','  $phoneNumber');";
     if (mysqli_query($conn, $sql)) {
-        echo "Record inserted successfully";
-        header("Location:./Userpage.php");
+        $message = "Data Inserted Successfully";
+echo "<script type='text/javascript'>alert('$message');</script>";
       } else {
         echo "Error inserting record: " . mysqli_error($conn);
       }
@@ -45,7 +45,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Donor</title>
+    <title>Doctor</title>
 </head>
 <body>
 <header>
@@ -59,8 +59,8 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
             <ul class="flex justify-evenly mr-8">
                 <li class="text-lg font-semibold px-4"><a href="./Userpage.php">Home</a></li>
                 <li class="text-lg font-semibold px-4">
-                    <form action="./Userpage.php" method="post">
-                         <input type="submit" name="logout" value="logout">
+                    <form action="./login.php" method="post">
+                         <input type="submit" name="logout" value="Logout">
                     </form>
                 </li>
             </ul>
@@ -88,10 +88,12 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         </label>
         <input class="block w-full text-gray-700 border rounded py-3 px-4 mb-3 " id="grid-first-name" name="departmentname" type="text">
         </div>
-        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0"> 
         <label class="text-gray-700 text-l font-bold mb-2" for="grid-first-name">
-            Hospital ID
+            Hospital ID 
         </label>
+        <a href="displayallhospitals.php" target ="_blank"><div class="text-blue-700 underline hover:underline-offset-4 ml-48"> view id</div></a>
+        
         <input class="alock w-full bext-gray-700 border rounded py-3 px-4 mb-3" id="grid-first-name" name="hospitalid" type="text">
         </div>
         <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
