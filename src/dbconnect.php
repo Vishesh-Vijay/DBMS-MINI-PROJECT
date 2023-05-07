@@ -1,6 +1,8 @@
 <?php
    
     $servername = "localhost"; 
+    // $username = "tsunami"; 
+    // $password = "munia2003";
     $username = "root"; 
     $password = "";
    
