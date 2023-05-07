@@ -70,12 +70,14 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         <label class="text-gray-700 text-l font-bold mb-2" for="grid-first-name">
             Patient ID
         </label>
+        <a href="searchpatient.php" target ="_blank"><div class="text-blue-700 underline hover:underline-offset-4 ml-48"> view id</div></a>
         <input class=" w-full  text-gray-700 border rounded py-3 px-4 mb-3 " id="grid-first-name" name="patient_ID"" type="text">
         </div>
         <div class="w-full md:w-1/2 px-3">
         <label class="text-gray-700 text-l font-bold mb-2" for="grid-last-name">
             Organ ID
         </label>
+        <a href="organs.php" target ="_blank"><div class="text-blue-700 underline hover:underline-offset-4 ml-48"> view id</div></a>
         <input class=" w-full text-gray-700 border rounded py-3 px-4 id="grid-last-name" name="organ_ID" type="text">
         </div>
         <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">

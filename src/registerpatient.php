@@ -30,12 +30,20 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     $address3=$_POST["address3"];
     $phone=$_POST["phone"];
     $bloodgroup=$_POST["bloodgroup"];
+    $organ=$_POST["organ"];
     
 
-    $sql="INSERT INTO `patient` (`first_name`, `last_name`, `age`,`medical_history`, `doctor`, `address`,`address2`, `address3`, `phone`, `Blood_group`) VALUES ('$firstname', '$lastname','$age', '$medicalhistory','$doctor', '$address','$address2', '$address3','$phone', '$bloodgroup');";
-    if (mysqli_query($conn, $sql)) {
-        echo "Record inserted successfully";
-        header("Location:./requireorgan.php");
+    $sql1="INSERT INTO `patient` (`first_name`, `last_name`, `age`,`medical_history`, `doctor`, `address`,`address2`, `address3`, `phone`, `Blood_group`) VALUES ('$firstname', '$lastname','$age', '$medicalhistory','$doctor', '$address','$address2', '$address3','$phone', '$bloodgroup');";
+    $result1=mysqli_query($conn, $sql1);
+    $sql2 = "INSERT INTO `organ_required` (`patient_id`, `organ`)
+         SELECT `Patient_ID`, '$organ'
+         FROM `patient`
+         WHERE `first_name` = '$firstname' AND `last_name`='$lastname' AND `age` = '$age' AND `medical_history` = '$medicalhistory' AND `doctor` = '$doctor' AND `address` = '$address' AND `address2` = '$address2' AND `address3` = '$address3' AND`phone` = '$phone' AND `Blood_group`='$bloodgroup'";
+
+    $result2=mysqli_query($conn, $sql2);
+    if ($result1 && $result2) {
+        $message = "Data Inserted Successfully";
+echo "<script type='text/javascript'>alert('$message');</script>";
       } else {
         echo "Error inserting record: " . mysqli_error($conn);
       }
@@ -67,7 +75,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
             <ul class="flex justify-evenly mr-8">
                 <li class="text-lg font-semibold px-4"><a href="./Userpage.php">Home</a></li>
                 <li class="text-lg font-semibold px-4">
-                    <form action="./Userpage.php" method="post">
+                    <form action="./Login.php" method="post">
                          <input type="submit" name="logout" value="Logout">
                     </form>
                 </li>
@@ -92,8 +100,9 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         </div>
         <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
         <label class="text-gray-700 text-l font-bold mb-2" for="doctor">
-            Doctor
+            Doctor ID
         </label>
+        <a href="searchDoctor.php" target ="_blank"><div class="text-blue-700 underline hover:underline-offset-4 ml-40"> view doctor</div></a>
         <input class=" w-full text-gray-700 border rounded py-3 px-4 mb-3 " id="doctor" name="doctor" type="text">
         </div>
         <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -138,7 +147,12 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         </label>
         <input class="w-full text-gray-700 border  rounded py-3 px-4 " id="grid-blood-group" name="bloodgroup" type="text">
         
+        
         </div>
+        <label class="block text-gray-700 text-sm font-bold mb-2 mt-4 w-full rounded px-2" for="organ">
+        Organ Required
+      </label>
+      <input class=" border rounded w-full py-3 px-4 text-gray-700 mb-3 w-full" id="organ" name="organ" type="text">
     </div>
     <button class="bg-red-500 text-white px-4 py-2 rounded-lg mt-2 mb-6 ml-48 " type="submit">Register</button>
 </form>
