@@ -4,7 +4,7 @@
     // $username = "tsunami"; 
     // $password = "munia2003";
     $username = "root"; 
-    $password = "123";
+    $password = "";
    
     $database = "Organ_Donation";
      $conn = mysqli_connect($servername, 
